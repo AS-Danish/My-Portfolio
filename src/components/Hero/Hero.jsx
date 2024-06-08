@@ -19,9 +19,9 @@ export const Hero = () => {
             <span className='text-4xl font-sans font-bold'>I am a </span><span className='text-4xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500 font-extrabold'>{typeEffect}</span>
           </div>
           <div className='flex flex-col'>
-              
+
           </div>
-          <div><img src="../../../assets/images/Myself.png" alt="" /></div>
+          <div><img data-tilt src="../../../assets/images/Myself.png" alt="" /></div>
         </div>
       </div>
     </section>
