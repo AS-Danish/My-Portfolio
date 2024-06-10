@@ -14,7 +14,7 @@ import mongodbIcon from '../../assets/icons/mongoDB.svg'
 import nodeJsIcon from '../../assets/icons/nodejs.png'
 import mysqlIcon from '../../assets/icons/mySql.png'
 import backVideo from '../../assets/video/skillsBG.mp4'
-import Waves from '../../assets/waves/wavesOpacity.svg'
+
 
 const Skills = () => {
     const skillsImg = [
