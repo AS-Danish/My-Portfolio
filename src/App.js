@@ -3,6 +3,7 @@ import { Hero } from './components/Hero/Hero';
 import Navbar from './components/Navbar/Navbar';
 import ParticlesComponent from './components/Particles/Particles';
 import Timeline from './components/Timeline/Timeline';
+import Skills from './components/Skills/Skills';
 
 function App() {
   const events = [
@@ -30,6 +31,7 @@ function App() {
     <Navbar/>
     <Hero/>
     <Timeline events={events}/>
+    <Skills/>
     </>
   );
 }
