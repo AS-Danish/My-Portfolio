@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import ParticlesComponent from './components/Particles/Particles';
 import Timeline from './components/Timeline/Timeline';
 import Skills from './components/Skills/Skills';
+import Projects from './components/Projects/Projects';
 
 function App() {
   const events = [
@@ -32,6 +33,7 @@ function App() {
     <Hero/>
     <Timeline events={events}/>
     <Skills/>
+    <Projects />
     </>
   );
 }
