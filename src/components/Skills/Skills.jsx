@@ -62,7 +62,7 @@ const Skills = () => {
 
             <div className='flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden py-20'>
                 <h1 className='text-6xl mb-4 font-extrabold'>Skills</h1>
-                <p className='text-gray-400 text-xl mx-20 px-20 text-center mb-6 flex flex-wrap'>I use cutting-edge technologies to create practical applications that solve real-life problems. <br/>Explore my portfolio to see modern tech in action</p>
+                <p className='text-gray-400 text-xl mx-20 px-20 text-center mb-6 flex flex-wrap'>I use cutting-edge technologies to create practical applications that solve real-life problems. Explore my portfolio to see modern tech in action</p>
                 <div className="p-5 flex flex-row justify-around wt-5 gap-5 items-center flex-wrap">
                     {skillsImg.map((img, index) => (
                         <img key={index} src={img.src} alt={img.alt} className="w-auto h-14" />
@@ -97,6 +97,7 @@ const Skills = () => {
                     </div>
                 </div>
             </div>
+
         </>
     );
 }

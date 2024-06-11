@@ -61,7 +61,7 @@ const Projects = () => {
             <motion.div
                 initial="hidden"
                 animate="show"
-                className='flex flex-wrap text-center items-center justify-around mb-10 px-32'
+                className='flex flex-wrap text-center items-center justify-around mb-10 px-10'
             >
                 {Proj.map((project, index) => (
                     <motion.div

@@ -5,7 +5,7 @@ import ParticlesComponent from './components/Particles/Particles';
 import Timeline from './components/Timeline/Timeline';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
-
+import { Contact } from './components/Contact/Contact';
 function App() {
   const events = [
     {heading:"Burhani National English School",
@@ -34,6 +34,7 @@ function App() {
     <Timeline events={events}/>
     <Skills/>
     <Projects />
+    <Contact/>
     </>
   );
 }
