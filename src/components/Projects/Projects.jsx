@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation, useScroll } from "framer-motion";
 import Proj1 from '../../assets/projects/proj1.png';
 import Proj2 from '../../assets/projects/proj2.png';
-import Proj3 from '../../assets/projects/proj3.png'
+import Proj3 from '../../assets/projects/proj3.png';
 
 const Projects = () => {
     const Proj = [
@@ -27,14 +28,50 @@ const Projects = () => {
             description: "Succesfully Completed this project of Currency Converter. User can see their currency price in other currencies."
         }
     ];
-    
+
+    const controls = useAnimation();
+    const ref = useRef(null);
+    const { scrollY } = useScroll();
+
+    useEffect(() => {
+        const element = ref.current;
+        if (!element) return;
+
+        const handleScroll = () => {
+            const top = element.getBoundingClientRect().top;
+            if (top < window.innerHeight) {
+                controls.start({ opacity: 1, y: 0 });
+            } else {
+                controls.start({ opacity: 0, y: 50 });
+            }
+        };
+
+        handleScroll(); // initial check
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [controls, scrollY]);
+
     return (
         <div className='bg-secondary/80 p-10 mx-auto'>
             <h1 className='text-6xl text-center font-bold p-10 pt-20 py-0'>Projects</h1>
             <p className='text-xl text-center p-10 py-5 mb-4 text-gray-400'>I have worked on a wide range of projects from Web Apps to Android Apps. <br />Here are some of my projects</p>
-            <div className='flex flex-wrap text-center items-center justify-around mb-10'>
+            <motion.div
+                initial="hidden"
+                animate="show"
+                className='flex flex-wrap text-center items-center justify-around mb-10 px-32'
+            >
                 {Proj.map((project, index) => (
-                    <div key={index} className="relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-card bg-clip-border text-gray-300 shadow-xl shadow-black mb-16 h-[36rem]">
+                    <motion.div
+                        key={index}
+                        ref={ref}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={controls}
+                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                        className="relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-card bg-clip-border text-gray-300 shadow-xl shadow-black mb-16 h-[36rem]"
+                    >
                         <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-56">
                             <img src={project.image} alt="project-image" className="h-full w-full object-cover" />
                         </div>
@@ -60,9 +97,9 @@ const Projects = () => {
                                 <img alt="Tania Andrew" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80" className="relative inline-block h-9 w-9 !rounded-full border-2 border-white object-cover object-center hover:z-10" />
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 }
